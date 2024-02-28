@@ -22,6 +22,7 @@ public class InputHandler {
       add("save");
       add("remove");
       add("exit");
+      add("users");
     }};
     parseInput();
   }
@@ -33,7 +34,7 @@ public class InputHandler {
       this.command = command;
       this.isValid = true;
       while (scan.hasNext()) {
-        prompts.add(scan.next().trim().replaceAll("[^a-zA-Z]+",""));
+        prompts.add(scan.next().trim().replaceAll("[^a-zA-Z0-9]+",""));
       }
     } else {
       this.isValid = false;
@@ -48,6 +49,10 @@ public class InputHandler {
 
   public LinkedList<String> getPrompts() {
     return this.prompts;
+  }
+
+  public String getUser() {
+    return this.prompts.get(0);
   }
 
   public boolean isValid(){

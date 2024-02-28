@@ -16,7 +16,7 @@ public class ShoppingCart {
   public void add(LinkedList<String> items){
     for (String item : items) {
       if (this.cartArray.contains(item)){
-        System.out.println("This item is in the list already.");
+        System.out.printf("%s is in the list already.\n", item);
       } else {
         this.cartArray.add(item);
       }
@@ -35,5 +35,16 @@ public class ShoppingCart {
     for (int i = 0; i < this.cartArray.size(); i++) {
       System.out.printf("%d. %s\n", i+1, this.cartArray.get(i));
     }
+  }
+
+  public LinkedList<String> getCart() {
+    return this.cartArray;
+  }
+
+  public Boolean isEmpty() {
+    if (this.cartArray.size() > 0) {
+      return false;
+    }
+    return true;
   }
 }
